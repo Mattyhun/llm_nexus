@@ -1,9 +1,11 @@
 test = ['assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8', 'assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12', 'assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16']
-generated_code = """
-def generated_function_name(args):
-    # Function implementation
-    pass
-"""
+import re
+
+# Extract the function name from the first test
+function_name = re.search(r'assert (\w+)\(', test[0]).group(1)
+
+# Replace the function name in generated_code
+generated_code = generated_code.replace('generated_function_name', function_name)
 
 import sys
 
