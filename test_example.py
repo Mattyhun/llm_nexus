@@ -4,6 +4,25 @@ import re
 # Extract the function name from the first test
 function_name = re.search(r'assert (\w+)\(', test[0]).group(1)
 
+generated_code = """
+def findLongestChain(pairs):
+    if not pairs:
+        return 0
+
+    # Sort the pairs based on their second element
+    pairs.sort(key=lambda x: x[1])
+
+    dp = [1] * len(pairs)
+    for i in range(1, len(pairs)):
+        for j in range(i):
+            # If the first element of current pair is greater than the second element of previous pair
+            # It means this pair can be chained to the previous pair
+            if pairs[i][0] > pairs[j][1]:
+                dp[i] = max(dp[i], dp[j] + 1)
+
+    return max(dp)
+"""
+
 # Replace the function name in generated_code
 generated_code = generated_code.replace('generated_function_name', function_name)
 
