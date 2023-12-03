@@ -1,27 +1,14 @@
 test = ['assert min_cost([[1, 2, 3], [4, 8, 2], [1, 5, 3]], 2, 2) == 8', 'assert min_cost([[2, 3, 4], [5, 9, 3], [2, 6, 4]], 2, 2) == 12', 'assert min_cost([[3, 4, 5], [6, 10, 4], [3, 7, 5]], 2, 2) == 16']
 import re
 
+# Extract the function name from the generated_code
+generated_function_name = re.search(r'def (\w+)\(', generated_code).group(1)
+
 # Extract the function name from the first test
-function_name = re.search(r'assert (\w+)\(', test[0]).group(1)
+test_function_name = re.search(r'assert (\w+)\(', test[0]).group(1)
 
-generated_code = """
-def findLongestChain(pairs):
-    if not pairs:
-        return 0
-
-    # Sort the pairs based on their second element
-    pairs.sort(key=lambda x: x[1])
-
-    dp = [1] * len(pairs)
-    for i in range(1, len(pairs)):
-        for j in range(i):
-            # If the first element of current pair is greater than the second element of previous pair
-            # It means this pair can be chained to the previous pair
-            if pairs[i][0] > pairs[j][1]:
-                dp[i] = max(dp[i], dp[j] + 1)
-
-    return max(dp)
-"""
+# Replace the function name in generated_code
+generated_code = generated_code.replace(generated_function_name, test_function_name)
 
 # Replace the function name in generated_code
 generated_code = generated_code.replace('generated_function_name', function_name)
