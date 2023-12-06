@@ -1,6 +1,6 @@
-import os
 import multiprocessing
 import logging as log
+
 
 def calculate_optimal_threads(factor=5):
     """

@@ -6,6 +6,9 @@ import logging as log
 # TODO: make this flexible
 
 def generate_one_completion(model, prompt):
+    """
+    Generate one completion from the given prompt and model returns the response content
+    """
     response = call_openai_api(model, prompt)
     response_content = extract_message_content(response.json())
     log.debug(response_content)

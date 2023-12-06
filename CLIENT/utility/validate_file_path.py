@@ -2,7 +2,9 @@ import os
 import logging as log
 
 def validate_file_path(file_path):
-    """Check if a given path is a valid file"""
+    """
+    Check if a given path is a valid file
+    """
     if not os.path.exists(file_path):
         log.error("Path does not exist: %s", file_path)
         return False

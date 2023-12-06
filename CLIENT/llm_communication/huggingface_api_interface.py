@@ -1,15 +1,19 @@
+import logging as log
+from project_config import initialize_logging, HUGGINGFACE_API_KEY
 import requests
 import os
 import sys
 from pyprojroot import here
 sys.path.append(str(here()))
-from project_config import initialize_logging, HUGGINGFACE_API_KEY
-import logging as log
 
 API_URL = "https://api-inference.huggingface.co/models/"
 
 
 def call_huggingface_api(model, message_content):
+    '''
+    Call the HuggingFace API with the given message and model, return the response.
+    '''
+    
     url = API_URL + model
 
     headers = {
@@ -18,9 +22,6 @@ def call_huggingface_api(model, message_content):
     }
 
     data = {"inputs": message_content}
-	
-   
-    
 
     log.debug("Sending request to %s with data: %s", url, data)
 
@@ -29,13 +30,10 @@ def call_huggingface_api(model, message_content):
     return response.json()
 
 
-
-
-
 if __name__ == "__main__":
     initialize_logging()
-    model = "codeparrot/codeparrot"
-    response = call_huggingface_api(model, "Generate me a python function that returns the sum of two numbers : def sum(a,b):")
+    model = "gpt2"
+    response = call_huggingface_api(
+        model, "Generate me a python function that returns the sum of two numbers : def sum(a,b):")
 
     print(response)
-

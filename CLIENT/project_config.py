@@ -1,11 +1,16 @@
 import os
 import sys
-import logging as log
-import colorlog
 import json
+import colorlog
+import logging as log
 from datetime import datetime
 
+
 def initialize_logging(debug=False):
+    '''
+    Initialize logging for the project. Creates a log directory if it does not exist.
+    If -d is in the command line arguments, displays debug level logs
+    '''
     if not os.path.exists("log"):
         os.makedirs("log")
     start_time = datetime.now().strftime("%Y-%m-%dT%H-%M")
@@ -13,13 +18,13 @@ def initialize_logging(debug=False):
     if any(arg in ['-d', '--d', '--debug', '-debug'] for arg in sys.argv) or debug:
         logging_level = log.DEBUG
 
-    log.basicConfig(level=log.DEBUG, filename='log/test_' + start_time, format='[%(asctime)s][%(levelname)s] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')  # This goes to the log file
-    
+    log.basicConfig(level=log.DEBUG, filename='log/test_' + start_time,
+                    format='[%(asctime)s][%(levelname)s] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')  # This goes to the log file
+
     # Set up colorlog for console log
     console_log = log.getLogger()
-    
-    # Create a formatter where you can specify colors for various levels
-    # Here, errors are set to be displayed in red and warnings in yellow
+
+    # Format log colors
     colored_formatter = colorlog.ColoredFormatter(
         "%(log_color)s[%(asctime)s][%(levelname)s] %(message)s%(reset)s",
         datefmt='%Y-%m-%d %H:%M:%S',
@@ -36,19 +41,10 @@ def initialize_logging(debug=False):
     ch.setFormatter(colored_formatter)
     console_log.addHandler(ch)
 
-linelen = 30
-# phase_start_display = lambda phase_name: max(linelen-len(phase_name),1)
-def phase_start_display(phase_name):
-    hashtaglen = max(1, linelen-len(phase_name)//2)
-    hashtags = '#' * hashtaglen
-    log.info("%s %s %s", hashtags, phase_name, hashtags)
 
-def phase_end_display():
-    log.info("")
-
+# Load API keys from secrets file
 with open('secrets/api_keys.json') as file:
     api_keys = json.load(file)
-
 
 OPENAI_API_KEY = api_keys['openaiApiKey']
 HUGGINGFACE_API_KEY = api_keys['huggingfaceApiKey']

@@ -11,6 +11,9 @@ HUMAN_EVAL = os.path.join(ROOT, "data", "HumanEval.jsonl.gz")
 
 
 def read_problems(evalset_file: str = HUMAN_EVAL) -> Dict[str, Dict]:
+    '''
+    Parses the human eval file and returns a dictionary of tasks
+    '''
     return {task["task_id"]: task for task in stream_jsonl(evalset_file)}
 
 

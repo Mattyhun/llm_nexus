@@ -1,6 +1,9 @@
 import re
 
 def get_pass_k_value(output_text):
+    '''
+    Get the pass@k value from the output text.
+    '''
     # Search for the pattern "pass@k": followed by a floating point number
     match = re.search(r"'pass@(\d+)': (\d+\.\d+)", output_text)
     
