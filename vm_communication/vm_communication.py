@@ -59,18 +59,7 @@ def transfer_file_to_vm(local_file_path, destination_file_path):
         raise RuntimeError("Failed to run command on vm")
     return output
 
-def validate_file_path(file_path):
-    """Check if a given path is a valid file"""
-    if not os.path.exists(file_path):
-        log.error("Path does not exist: %s", file_path)
-        return False
-    elif not os.path.isfile(file_path):
-        log.error("Path is not a file: %s", file_path)
-        return False
-    else:
-        log.error("File path is valid: %s", file_path)
-        return True
-        
+
         
 
 

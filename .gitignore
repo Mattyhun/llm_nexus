@@ -1,2 +1,5 @@
 .venv
 .aider*
+log/*
+*.log
+*.pyc

@@ -5,15 +5,15 @@ import logging as log
 
 # TODO: make this flexible
 
-def generate_one_completion(prompt):
-    response = call_openai_api(prompt, "gpt-3.5-turbo")
+def generate_one_completion(model, prompt):
+    response = call_openai_api(model, prompt)
     response_content = extract_message_content(response.json())
     log.debug(response_content)
     return response_content
 
 if __name__ == "__main__":
 
-    response = generate_one_completion("Implement a function that returns the sum of two numbers")
+    response = generate_one_completion("gpt3.5-turbo","Implement a function that returns the sum of two numbers")
     print(response)
 
 

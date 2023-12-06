@@ -5,19 +5,14 @@ import os
 import sys
 from pyprojroot import here
 sys.path.append(str(here()))
-from project_config import initialize_logging
-
-OPENAI_API_KEY = "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"
-
-import requests
+from project_config import initialize_logging, OPENAI_API_KEY
 import logging as log
-
 import time
 from functools import wraps
 
 
 
-def retry(max_retries=3, backoff_factor=2, retriable_statuses=[500, 503]):
+def retry(max_retries=3, backoff_factor=2, retriable_statuses=[500, 503, 429]):
     def decorator_retry(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -51,7 +46,7 @@ def retry(max_retries=3, backoff_factor=2, retriable_statuses=[500, 503]):
     return decorator_retry
 
 @retry(max_retries=3, backoff_factor=2)
-def call_openai_api(message_content, model):
+def call_openai_api(model, message_content):
     url = "https://api.openai.com/v1/chat/completions"
 
     headers = {
@@ -67,8 +62,20 @@ def call_openai_api(message_content, model):
     log.debug("Sending request to %s with data: %s", url, data)
     response = requests.post(url, headers=headers, json=data, timeout=30)
     if response.status_code != 200:
+        handle_fatal_error(response)
         log.error("Error %s: %s", response.status_code, response.text)
+    
     return response
+
+def handle_fatal_error(response):
+    if response.status_code == 401:
+        log.error("Unauthorized. Check your OpenAI API key.")
+        raise RuntimeError("Unauthorized. Check your OpenAI API key.")
+    elif response.status_code == 404:
+        log.error("Endpoint not found. Check your OpenAI API endpoint.")
+        raise RuntimeError("Endpoint not found. Check your OpenAI API endpoint.")
+
+
 
 def extract_message_content(response_json):
     # Check if the required keys are in the response
@@ -86,7 +93,7 @@ def extract_message_content(response_json):
 if __name__ == "__main__":
     initialize_logging()
     # Example usage
-    response = call_openai_api("Create a python function that says hello world","gpt-3.5-turbo")
+    response = call_openai_api("gpt-3.5-turbo","Create a python function that says hello world")
     if response and response.status_code == 200:
         print("Successful response.")
     else:

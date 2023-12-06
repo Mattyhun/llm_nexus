@@ -46,10 +46,12 @@ def phase_start_display(phase_name):
 def phase_end_display():
     log.info("")
 
-# with open('local_secrets/secrets.json') as file:
-#     migrationSecrets = json.load(file)
+with open('secrets/api_keys.json') as file:
+    api_keys = json.load(file)
 
 
+OPENAI_API_KEY = api_keys['openaiApiKey']
+HUGGINGFACE_API_KEY = api_keys['huggingfaceApiKey']
 
 VM_NAME = "isolated-test-vm"
 VM_ZONE = "europe-west3-c"
