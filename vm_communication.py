@@ -71,6 +71,7 @@ def validate_file_path(file_path):
 
 
 if __name__ == "__main__":
+    transfer_file_to_vm("samples.jsonl", "samples.jsonl")
     print("Running command on vm")
     output = run_command_on_vm("cd human-eval && python3 human_eval/evaluate_functional_correctness.py samples.jsonl")
     print("this is output \n" + output)
