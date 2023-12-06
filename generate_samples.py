@@ -1,6 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from utility.calculate_optimal_threads import calculate_optimal_threads
-from human_eval.data import write_jsonl, read_problems
+from utility.data_handler import write_jsonl, read_problems
 from generate_one_completion import generate_one_completion
 import logging as log
 from project_config import initialize_logging

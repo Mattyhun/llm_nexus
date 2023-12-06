@@ -2,10 +2,12 @@ from typing import Iterable, Dict
 import gzip
 import json
 import os
+import sys
+from pyprojroot import here
+sys.path.append(str(here()))
 
-
-ROOT = os.path.dirname(os.path.abspath(__file__))
-HUMAN_EVAL = os.path.join(ROOT, "..", "data", "HumanEval.jsonl.gz")
+ROOT = str(here())
+HUMAN_EVAL = os.path.join(ROOT, "data", "HumanEval.jsonl.gz")
 
 
 def read_problems(evalset_file: str = HUMAN_EVAL) -> Dict[str, Dict]:

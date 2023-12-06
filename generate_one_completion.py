@@ -13,7 +13,7 @@ def generate_one_completion(model, prompt):
 
 if __name__ == "__main__":
 
-    response = generate_one_completion("gpt3.5-turbo","Implement a function that returns the sum of two numbers")
+    response = generate_one_completion("gpt-3.5-turbo","Implement a function that returns the sum of two numbers")
     print(response)
 
 
