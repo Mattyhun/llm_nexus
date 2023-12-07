@@ -9,7 +9,7 @@ from utility.data_handler import read_problems, sort_jsonl, write_jsonl, read_an
 from vm_communication.vm_communication import run_command_on_vm, transfer_file_from_vm, transfer_file_to_vm
 
 
-def main(interface, model, num_samples_per_task=1, requests_per_minute=3500):
+def main(interface, model, num_samples_per_task=1, requests_per_minute=3500, max_threads=calculate_optimal_threads()):
     initialize_logging()
     log.info("Starting the main function")
     samples_file_path = "samples.jsonl"
@@ -18,11 +18,9 @@ def main(interface, model, num_samples_per_task=1, requests_per_minute=3500):
 
     problems = read_problems()
 
-    optimal_number_of_threads = calculate_optimal_threads()
-    
     try:
         samples = generate_answer_samples(
-            interface, model, problems, num_samples_per_task, max_threads=optimal_number_of_threads, requests_per_minute=requests_per_minute)
+            interface, model, problems, num_samples_per_task, max_threads, requests_per_minute=requests_per_minute)
     except Exception as e:
         log.error("Failed to generate samples: %s", e)
         raise RuntimeError("Failed to generate samples") from e
@@ -59,5 +57,6 @@ if __name__ == "__main__":
     parser.add_argument('--interface', type=str, required=True, help='The interface to be used. possible values: local, huggingface, openai')
     parser.add_argument('--num_samples_per_task', type=int, default=1, help='Number of samples generated per task.')
     parser.add_argument('--requests_per_minute', type=int, default=3500, help='Number of api requests per minute.')
+    parser.add_argument('--max_threads', type=int, help='Maximum number of threads to be used in the thread pool.')
     args = parser.parse_args()
     main(args.interface, args.model, args.num_samples_per_task, args.requests_per_minute)
