@@ -7,7 +7,7 @@ from generate_one_completion import generate_one_completion
 from utility.data_handler import write_jsonl, read_problems
 from utility.calculate_optimal_threads import calculate_optimal_threads
 
-def generate_answer_samples(model, problems, num_samples_per_task=1, max_threads=50, requests_per_minute=3500):
+def generate_answer_samples(interface, model, problems, num_samples_per_task=1, max_threads=50, requests_per_minute=3500):
     """
     Generate samples of model's answers for given tasks/problems.
 
@@ -43,7 +43,7 @@ def generate_answer_samples(model, problems, num_samples_per_task=1, max_threads
         log.debug("Generating samples for task %s", task_id)
         return {
             "task_id": task_id,
-            "completion": generate_one_completion(model, problems[task_id]["prompt"])
+            "completion": generate_one_completion(interface, model, problems[task_id]["prompt"])
         }
 
     total_tasks = len(problems) * num_samples_per_task

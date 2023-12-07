@@ -3,6 +3,7 @@ import gzip
 import json
 import os
 import sys
+import logging as log
 from pyprojroot import here
 sys.path.append(str(here()))
 
@@ -52,3 +53,32 @@ def write_jsonl(filename: str, data: Iterable[Dict], append: bool = False):
         with open(filename, mode) as fp:
             for x in data:
                 fp.write((json.dumps(x) + "\n").encode('utf-8'))
+
+def read_and_print_jsonl(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            data = json.loads(line)
+            task_id = data.get('task_id', '')
+            result = data.get('result', '')
+            passed = data.get('passed', '')
+
+            log.info('Task ID: %s', task_id)
+            log.info('Result: %s', result)
+            log.info('Passed: %s ', passed)
+            log.info("--------------------------------------------")
+
+
+def sort_jsonl(file_path):
+    '''Sorts the jsonl file based on the numeric part of the task_id in ascending order'''
+    with open(file_path, 'r') as f:
+        data = [json.loads(line) for line in f]
+
+    # Sort the data list based on the numeric part of the task_id in ascending order
+    data.sort(key=lambda x: int(x['task_id'].split('/')[1]))
+
+    # Overwrite the sorted data back into the file
+    with open(file_path, 'w') as f:
+        for entry in data:
+            json.dump(entry, f)
+            f.write('\n')
+

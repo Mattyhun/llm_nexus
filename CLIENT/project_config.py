@@ -6,6 +6,20 @@ import logging as log
 from datetime import datetime
 
 
+VM_ZONE = "europe-west3-c"
+VM_NAME = "isolated-test-vm"
+GCP_USERNAME = "sardibarnabas"
+HOSTED_API_ENDPONT = "http://172.27.232.4:4891/v1/completions/"
+
+
+# Load API keys from secrets file
+with open('secrets/api_keys.json') as file:
+    api_keys = json.load(file)
+
+OPENAI_API_KEY = api_keys['openaiApiKey']
+HUGGINGFACE_API_KEY = api_keys['huggingfaceApiKey']
+
+
 def initialize_logging(debug=False):
     '''
     Initialize logging for the project. Creates a log directory if it does not exist.
@@ -40,15 +54,3 @@ def initialize_logging(debug=False):
     ch.setLevel(logging_level)
     ch.setFormatter(colored_formatter)
     console_log.addHandler(ch)
-
-
-# Load API keys from secrets file
-with open('secrets/api_keys.json') as file:
-    api_keys = json.load(file)
-
-OPENAI_API_KEY = api_keys['openaiApiKey']
-HUGGINGFACE_API_KEY = api_keys['huggingfaceApiKey']
-
-VM_NAME = "isolated-test-vm"
-VM_ZONE = "europe-west3-c"
-GCP_USERNAME = "sardibarnabas"
