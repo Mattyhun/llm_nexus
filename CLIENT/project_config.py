@@ -9,7 +9,9 @@ from datetime import datetime
 VM_ZONE = "europe-west3-c"
 VM_NAME = "isolated-test-vm"
 GCP_USERNAME = "sardibarnabas"
-HOSTED_API_ENDPONT = "http://172.27.232.4:4891/v1/completions/"
+
+
+HOSTED_API_ENDPONT = "http://172.27.232.11:4891/v1/completions/"
 
 
 # Load API keys from secrets file

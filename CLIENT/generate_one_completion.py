@@ -21,11 +21,14 @@ def generate_one_completion(interface_name, model, prompt):
     
     log.debug("Using interface: %s, model: %s, prompt: %s", interface_name, model, prompt)
     response = call_api_func(model, prompt)
+    print(response)
     response_content = extract_func(response.json())
     log.debug(response_content)
 
     return response_content
 
 if __name__ == "__main__":
+    from project_config import initialize_logging
+    initialize_logging()
     response = generate_one_completion("openai", "gpt-3.5-turbo","Implement a function that returns the sum of two numbers")
     print(response)

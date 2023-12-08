@@ -1,6 +1,5 @@
 tqdm
-fire
-numpy
-tenacity
-tiktoken
-tqdm
+colorlog
+pyprojroot
+requests
+pytest

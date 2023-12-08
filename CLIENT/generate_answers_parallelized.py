@@ -5,9 +5,8 @@ from tqdm import tqdm  # Import tqdm for the progress bar
 from project_config import initialize_logging
 from generate_one_completion import generate_one_completion
 from utility.data_handler import write_jsonl, read_problems
-from utility.calculate_optimal_threads import calculate_optimal_threads
 
-def generate_answer_samples(interface, model, problems, num_samples_per_task=1, max_threads=50, requests_per_minute=3500):
+def generate_answers_parallelized(interface, model, problems, num_samples_per_task=1, max_threads=50, requests_per_minute=3500):
     """
     Generate samples of model's answers for given tasks/problems.
 
@@ -76,8 +75,9 @@ def generate_answer_samples(interface, model, problems, num_samples_per_task=1, 
 if __name__ == "__main__":
     initialize_logging()
     model = "gpt-3.5-turbo"
-    optimal_number_of_threads = calculate_optimal_threads()
+    interface = "openai"
+    optimal_number_of_threads = 40
     problems = read_problems()
-    samples = generate_answer_samples(model, problems, num_samples_per_task=1,
+    samples = generate_answers_parallelized(interface, model, problems, num_samples_per_task=1,
                                       max_threads=optimal_number_of_threads, requests_per_minute=3500)
     write_jsonl("samples.jsonl", samples)

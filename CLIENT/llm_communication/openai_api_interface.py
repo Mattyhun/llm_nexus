@@ -61,13 +61,15 @@ def call_openai_api(model, message_content):
 
     response = requests.post(url, headers=headers, json=data, timeout=30)
 
-    if response and response.status_code != 200:
+    if response.status_code != 200:
+        print("This is triggered")
         handle_error_response(response)
 
     return response
 
 
 def handle_error_response(response):
+    print("Error response: %s %s", response.status_code, response.text)
     fatal_errors = {
         401: "Unauthorized. Check your OpenAI API key.",
         404: "Endpoint not found. Check your OpenAI API endpoint."
@@ -98,12 +100,15 @@ def extract_message_content(response_json):
 if __name__ == "__main__":
     initialize_logging()
 
-    response = call_openai_api(
-        "gpt-3.5-turbo", "Create a python function that says hello world")
+    try:
+        response = call_openai_api(
+            "gpt-3.5-turbo", "Create a python function that says hello world")
 
-    if response and response.status_code == 200:
-        print("Successful response.")
-    else:
-        print("Failed to get a successful response.")
+        if response and response.status_code == 200:
+            print("Successful response.")
+        else:
+            print("Failed to get a successful response.")
 
-    print(extract_message_content(response.json()))
+        print(extract_message_content(response.json()))
+    except RuntimeError as e:
+        print(f"Error encountered: {e}")
