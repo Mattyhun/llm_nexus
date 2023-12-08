@@ -6,3 +6,4 @@
 .vscode
 */secrets/*
 ```
+secrets/api_keys.json
