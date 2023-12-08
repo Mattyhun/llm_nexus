@@ -21,7 +21,6 @@ def generate_one_completion(interface_name, model, prompt):
     
     log.debug("Using interface: %s, model: %s, prompt: %s", interface_name, model, prompt)
     response = call_api_func(model, prompt)
-    print(response)
     response_content = extract_func(response.json())
     log.debug(response_content)
 
