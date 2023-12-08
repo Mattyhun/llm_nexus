@@ -1,0 +1,12 @@
+[2023-12-06 17:11:08][DEBUG] Sending request to https://api-inference.huggingface.co/models/gpt2 with data: {'inputs': 'Generate me a python function that returns the sum of two numbers \n def sum(a,b): '}
+[2023-12-06 17:11:08][DEBUG] Starting new HTTPS connection (1): api-inference.huggingface.co:443
+[2023-12-06 17:11:09][DEBUG] https://api-inference.huggingface.co:443 "POST /models/gpt2 HTTP/1.1" 200 None
+[2023-12-06 17:11:09][DEBUG] Response: <Response [200]>
+[2023-12-06 17:11:29][DEBUG] Sending request to https://api-inference.huggingface.co/models/gpt2 with data: {'inputs': 'Generate me a python function that returns the sum of two numbers \n def sum(a,b): '}
+[2023-12-06 17:11:29][DEBUG] Starting new HTTPS connection (1): api-inference.huggingface.co:443
+[2023-12-06 17:11:30][DEBUG] https://api-inference.huggingface.co:443 "POST /models/gpt2 HTTP/1.1" 200 108
+[2023-12-06 17:11:30][DEBUG] Response: <Response [200]>
+[2023-12-06 17:11:46][DEBUG] Sending request to https://api-inference.huggingface.co/models/gpt2 with data: {'inputs': 'Generate me a python function that returns the sum of two numbers : def sum(a,b):'}
+[2023-12-06 17:11:46][DEBUG] Starting new HTTPS connection (1): api-inference.huggingface.co:443
+[2023-12-06 17:11:46][DEBUG] https://api-inference.huggingface.co:443 "POST /models/gpt2 HTTP/1.1" 200 None
+[2023-12-06 17:11:46][DEBUG] Response: <Response [200]>

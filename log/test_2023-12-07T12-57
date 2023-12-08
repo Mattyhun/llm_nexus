@@ -1,0 +1,10 @@
+[2023-12-07 12:57:59][DEBUG] Using interface: openai, model: gpt-3.5-turbo, prompt: Implement a function that returns the sum of two numbers
+[2023-12-07 12:57:59][DEBUG] Sending request to https://api.openai.com/v1/chat/completions with data: {'model': 'gpt-3.5-turbo', 'messages': [{'role': 'user', 'content': 'Implement a function that returns the sum of two numbers'}], 'temperature': 0.7}
+[2023-12-07 12:57:59][DEBUG] Starting new HTTPS connection (1): api.openai.com:443
+[2023-12-07 12:58:01][DEBUG] https://api.openai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 None
+[2023-12-07 12:58:01][DEBUG] def add_numbers(a, b):
+    return a + b
+
+# Example usage
+print(add_numbers(3, 5))  # Output: 8
+print(add_numbers(-2, 10))  # Output: 8

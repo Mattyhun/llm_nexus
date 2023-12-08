@@ -1,0 +1,4 @@
+[2023-12-06 17:14:05][DEBUG] Sending request to https://api-inference.huggingface.co/models/codeparrot/codeparrot with data: {'inputs': 'Generate me a python function that returns the sum of two numbers : def sum(a,b):'}
+[2023-12-06 17:14:05][DEBUG] Starting new HTTPS connection (1): api-inference.huggingface.co:443
+[2023-12-06 17:14:06][DEBUG] https://api-inference.huggingface.co:443 "POST /models/codeparrot/codeparrot HTTP/1.1" 503 96
+[2023-12-06 17:14:06][DEBUG] Response: <Response [503]>

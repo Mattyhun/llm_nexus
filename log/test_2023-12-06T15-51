@@ -1,0 +1,12 @@
+[2023-12-06 15:51:07][DEBUG] Sending request to https://api.openai.com/v1/chat/completions with data: {'model': 'Create a python function that says hello world', 'messages': [{'role': 'user', 'content': 'gpt-3.5-turbo'}], 'temperature': 0.7}
+[2023-12-06 15:51:07][DEBUG] Starting new HTTPS connection (1): api.openai.com:443
+[2023-12-06 15:51:07][DEBUG] https://api.openai.com:443 "POST /v1/chat/completions HTTP/1.1" 400 149
+[2023-12-06 15:51:07][ERROR] Error 400: {
+    "error": {
+        "message": "invalid model ID",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": null
+    }
+}
+

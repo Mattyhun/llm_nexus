@@ -1,0 +1,2 @@
+[2023-12-07 01:58:36][DEBUG] Sending request to http://172.27.232.4:4891/v1/completions with data: {'model': 'wizardlm-13b-v1.2.Q4_0.gguf', 'temperature': 0.28, 'max_tokens': 200, 'top_p': 0.95, 'n': 1, 'echo': True, 'stream': False, 'prompt': 'Create me a python function that adds two numbers together.'}
+[2023-12-07 01:58:36][DEBUG] Starting new HTTP connection (1): 172.27.232.4:4891

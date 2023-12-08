@@ -1,0 +1,13 @@
+[2023-12-06 23:28:01][INFO] Transferring samples.jsonl to vm at samples.jsonl
+[2023-12-06 23:28:01][DEBUG] ['bash.exe', 'gcloud', 'compute', 'scp', 'samples.jsonl', 'sardibarnabas@isolated-test-vm:samples.jsonl', '--zone', 'europe-west3-c']
+[2023-12-06 23:28:26][INFO] 
+[2023-12-06 23:28:26][INFO] Running command on vm: python3 human-eval/human_eval/evaluate_functional_correctness.py samples.jsonl
+[2023-12-06 23:28:26][DEBUG] gcloud compute ssh sardibarnabas@isolated-test-vm --zone europe-west3-c --command "python3 human-eval/human_eval/evaluate_functional_correctness.py samples.jsonl"
+[2023-12-06 23:28:53][DEBUG] 0it [00:00, ?it/s]Reading samples...
+164it [00:00, 9515.10it/s]
+  0%|          | 0/164 [00:00<?, ?it/s]Running test suites...
+  3%|\u258e         | 5/164 [00:00<00:03, 49.36it/s]  7%|\u258b         | 11/164 [00:00<00:02, 52.43it/s] 10%|\u2588         | 17/164 [00:00<00:02, 51.24it/s] 14%|\u2588\u258d        | 23/164 [00:00<00:02, 51.92it/s] 18%|\u2588\u258a        | 29/164 [00:00<00:02, 52.12it/s] 21%|\u2588\u2588\u258f       | 35/164 [00:00<00:02, 52.79it/s] 25%|\u2588\u2588\u258c       | 41/164 [00:00<00:02, 52.44it/s] 29%|\u2588\u2588\u258a       | 47/164 [00:00<00:02, 51.95it/s] 32%|\u2588\u2588\u2588\u258f      | 53/164 [00:01<00:02, 52.23it/s] 40%|\u2588\u2588\u2588\u2589      | 65/164 [00:01<00:01, 70.59it/s] 46%|\u2588\u2588\u2588\u2588\u258b     | 76/164 [00:01<00:01, 79.06it/s] 54%|\u2588\u2588\u2588\u2588\u2588\u258e    | 88/164 [00:01<00:00, 88.62it/s] 61%|\u2588\u2588\u2588\u2588\u2588\u2588    | 100/164 [00:01<00:00, 97.29it/s] 68%|\u2588\u2588\u2588\u2588\u2588\u2588\u258a   | 111/164 [00:01<00:00, 99.13it/s] 74%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d  | 122/164 [00:01<00:00, 101.75it/s] 82%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f | 134/164 [00:01<00:00, 104.60it/s] 89%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 146/164 [00:01<00:00, 104.43it/s] 96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 158/164 [00:01<00:00, 104.92it/s]100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 164/164 [00:02<00:00, 81.07it/s] 
+  0%|          | 0/164 [00:00<?, ?it/s]Writing results to samples.jsonl_results.jsonl...
+{'pass@1': 0.31097560975609756}
+100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 164/164 [00:00<00:00, 76557.13it/s]
+

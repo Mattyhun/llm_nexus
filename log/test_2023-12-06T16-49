@@ -1,0 +1,1 @@
+[2023-12-06 16:49:24][DEBUG] Sending request to https://api-inference.huggingface.co/models/gpt2 with data: {'Can you please let us know more details about your '}

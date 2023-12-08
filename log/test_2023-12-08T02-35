@@ -1,0 +1,5 @@
+[2023-12-08 02:35:34][DEBUG] Using interface: openai, model: gpt-3.5-turbo, prompt: Implement a function that returns the sum of two numbers
+[2023-12-08 02:35:34][DEBUG] Sending request to https://api.openai.com/v1/chat/completions with data: {'model': 'gpt-3.5-turbo', 'messages': [{'role': 'user', 'content': 'Implement a function that returns the sum of two numbers'}], 'temperature': 0.7}
+[2023-12-08 02:35:34][DEBUG] Starting new HTTPS connection (1): api.openai.com:443
+[2023-12-08 02:35:35][DEBUG] https://api.openai.com:443 "POST /v1/chat/completions HTTP/1.1" 401 301
+[2023-12-08 02:35:35][DEBUG] No content found in message.

@@ -1,0 +1,8 @@
+[2023-12-07 10:24:33][INFO] Starting the main function
+[2023-12-07 10:24:53][INFO] Starting the main function
+[2023-12-07 10:24:53][INFO] Optimal number of threads: 40
+[2023-12-07 10:24:53][INFO] File path is valid: samples.jsonl
+[2023-12-07 10:24:53][INFO] Transferring samples.jsonl to vm at samples.jsonl
+[2023-12-07 10:24:53][DEBUG] ['bash.exe', 'gcloud', 'compute', 'scp', 'samples.jsonl', 'sardibarnabas@isolated-test-vm:samples.jsonl', '--zone', 'europe-west3-c']
+[2023-12-07 10:25:00][WARNING] b''
+[2023-12-07 10:25:00][WARNING] Retrying in 5 seconds

@@ -1,0 +1,4 @@
+[2023-12-06 16:57:50][DEBUG] Sending request to https://api-inference.huggingface.co/models/bigcode/starcoder with data: Generate me a python function that returns the sum of two numbers 
+[2023-12-06 16:57:50][DEBUG] Starting new HTTPS connection (1): api-inference.huggingface.co:443
+[2023-12-06 16:57:50][DEBUG] https://api-inference.huggingface.co:443 "POST /models/bigcode/starcoder HTTP/1.1" 422 None
+[2023-12-06 16:57:50][DEBUG] Response: <Response [422]>

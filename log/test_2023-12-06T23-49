@@ -1,0 +1,16 @@
+[2023-12-06 23:49:30][INFO] Transferring samples.jsonl to vm at samples.jsonl
+[2023-12-06 23:49:30][DEBUG] ['bash.exe', 'gcloud', 'compute', 'scp', 'samples.jsonl', 'sardibarnabas@isolated-test-vm:samples.jsonl', '--zone', 'europe-west3-c']
+[2023-12-06 23:49:55][INFO] 
+[2023-12-06 23:49:55][INFO] Running command on vm: python3 human-eval/human_eval/evaluate_functional_correctness.py samples.jsonl
+[2023-12-06 23:49:55][DEBUG] gcloud compute ssh sardibarnabas@isolated-test-vm --zone europe-west3-c --command "python3 human-eval/human_eval/evaluate_functional_correctness.py samples.jsonl"
+[2023-12-06 23:50:21][DEBUG] Reading samples...
+0it [00:00, ?it/s]164it [00:00, 8959.15it/s]
+Running test suites...
+  0%|          | 0/164 [00:00<?, ?it/s]  4%|\u258e         | 6/164 [00:00<00:02, 52.91it/s]  7%|\u258b         | 12/164 [00:00<00:03, 50.05it/s] 11%|\u2588         | 18/164 [00:00<00:02, 51.96it/s] 15%|\u2588\u258d        | 24/164 [00:00<00:02, 52.52it/s] 18%|\u2588\u258a        | 30/164 [00:00<00:02, 53.05it/s] 22%|\u2588\u2588\u258f       | 36/164 [00:00<00:02, 53.58it/s] 26%|\u2588\u2588\u258c       | 42/164 [00:00<00:02, 55.23it/s] 29%|\u2588\u2588\u2589       | 48/164 [00:00<00:02, 56.18it/s] 33%|\u2588\u2588\u2588\u258e      | 54/164 [00:00<00:01, 55.77it/s] 40%|\u2588\u2588\u2588\u2589      | 65/164 [00:01<00:01, 71.03it/s] 46%|\u2588\u2588\u2588\u2588\u258b     | 76/164 [00:01<00:01, 80.81it/s] 54%|\u2588\u2588\u2588\u2588\u2588\u258e    | 88/164 [00:01<00:00, 89.42it/s] 61%|\u2588\u2588\u2588\u2588\u2588\u2588    | 100/164 [00:01<00:00, 95.71it/s] 69%|\u2588\u2588\u2588\u2588\u2588\u2588\u2589   | 113/164 [00:01<00:00, 103.49it/s] 76%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 125/164 [00:01<00:00, 106.43it/s] 84%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 137/164 [00:01<00:00, 107.53it/s] 91%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 150/164 [00:01<00:00, 111.81it/s] 99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 163/164 [00:01<00:00, 114.76it/s]100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 164/164 [00:01<00:00, 83.57it/s] 
+  0%|          | 0/164 [00:00<?, ?it/s]100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 164/164 [00:00<00:00, 78425.02it/s]
+Writing results to samples.jsonl_results.jsonl...
+{'pass@1': 0.31097560975609756}
+
+[2023-12-06 23:50:21][INFO] Transferring samples.jsonl_results.jsonl from vm to local at samples.jsonl_results.jsonl
+[2023-12-06 23:50:21][DEBUG] ['bash.exe', 'gcloud', 'compute', 'scp', 'sardibarnabas@isolated-test-vm:samples.jsonl_results.jsonl', 'samples.jsonl_results.jsonl', '--zone', 'europe-west3-c']
+[2023-12-06 23:50:45][INFO] 

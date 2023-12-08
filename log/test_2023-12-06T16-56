@@ -1,0 +1,12 @@
+[2023-12-06 16:56:20][DEBUG] Sending request to https://api-inference.huggingface.co/models/codeparrot with data: Generate me a python function that returns the sum of two numbers 
+[2023-12-06 16:56:21][DEBUG] Starting new HTTPS connection (1): api-inference.huggingface.co:443
+[2023-12-06 16:56:21][DEBUG] https://api-inference.huggingface.co:443 "POST /models/codeparrot HTTP/1.1" 404 43
+[2023-12-06 16:56:21][DEBUG] Response: <Response [404]>
+[2023-12-06 16:56:32][DEBUG] Sending request to https://api-inference.huggingface.co/models/codeparrot/codeparrot with data: Generate me a python function that returns the sum of two numbers 
+[2023-12-06 16:56:32][DEBUG] Starting new HTTPS connection (1): api-inference.huggingface.co:443
+[2023-12-06 16:56:32][DEBUG] https://api-inference.huggingface.co:443 "POST /models/codeparrot/codeparrot HTTP/1.1" 503 96
+[2023-12-06 16:56:32][DEBUG] Response: <Response [503]>
+[2023-12-06 16:56:44][DEBUG] Sending request to https://api-inference.huggingface.co/models/codeparrot/codeparrot with data: Generate me a python function that returns the sum of two numbers 
+[2023-12-06 16:56:44][DEBUG] Starting new HTTPS connection (1): api-inference.huggingface.co:443
+[2023-12-06 16:56:45][DEBUG] https://api-inference.huggingface.co:443 "POST /models/codeparrot/codeparrot HTTP/1.1" 503 96
+[2023-12-06 16:56:45][DEBUG] Response: <Response [503]>
